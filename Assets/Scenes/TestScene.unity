@@ -129,6 +129,7 @@ GameObject:
   - 33: {fileID: 818278506}
   - 65: {fileID: 818278505}
   - 23: {fileID: 818278504}
+  - 114: {fileID: 818278508}
   m_Layer: 0
   m_Name: Satellite
   m_TagString: Untagged
@@ -190,6 +191,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &818278508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400000, guid: c248e693ff95c4fcab356dabbdf8e403,
+    type: 2}
+  m_PrefabInternal: {fileID: 90253658}
+  m_GameObject: {fileID: 818278503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 588ff7b6f000540d19d9f3fbd2f9943e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1083903137
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,6 +284,7 @@ GameObject:
   - 92: {fileID: 1805575928}
   - 124: {fileID: 1805575927}
   - 81: {fileID: 1805575926}
+  - 114: {fileID: 1805575931}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -343,3 +357,15 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!114 &1805575931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1805575925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5c0dcf964c26447a8ceb7fcb7912e3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1083903141}
