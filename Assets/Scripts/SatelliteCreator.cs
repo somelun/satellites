@@ -7,6 +7,8 @@ public class SatelliteCreator : MonoBehaviour {
 	public GameObject satellite;
 	public float creationPeriod = 3.0f;
 
+	private int count = 9;
+
 	private void Start() {
 		StartCoroutine("CrateCoroutine");
 	}
@@ -15,20 +17,23 @@ public class SatelliteCreator : MonoBehaviour {
 		Vector3 localPlanetLaunchPosition = Random.onUnitSphere * 0.5f;
 		Vector3 startPosition = planet.transform.TransformPoint(localPlanetLaunchPosition);
 
-		Vector3 relativePos = planet.transform.position - startPosition;
-        Quaternion rotation = Quaternion.LookRotation(relativePos);
+		Vector3 relativePos = (startPosition - planet.transform.position).normalized;
+        Quaternion rotation = Quaternion.LookRotation(Vector3.forward, relativePos);
+
+        float planetR = planet.transform.localScale.x / 2;
 
 		GameObject satelliteObject = GameObject.Instantiate(satellite, startPosition, rotation) as GameObject;
+		satelliteObject.GetComponent<MoveObjectUp>().orbitalHeight = planetR * 1.5f;
+		satelliteObject.GetComponent<MoveObjectUp>().planetPosition = planet.transform.position;
+
+		count = count - 1;
 	}
 
 	IEnumerator CrateCoroutine() {
-		while(true) {
+		while(count > 0) {
 			CreateSatellite();
 			yield return new WaitForSeconds(creationPeriod);
 		}
 	}
 
 }
-
-	// 	float planetR = planet.transform.localScale.x / 2;
-	// 	float orbitalHeight = Random.Range(planetR * 2, planetR * 4);
