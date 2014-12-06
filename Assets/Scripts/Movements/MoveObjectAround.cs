@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MoveObject : MonoBehaviour {
+public class MoveObjectAround : MonoBehaviour {
 
 	public float speed;
 	public Transform target;
