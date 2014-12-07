@@ -50,7 +50,6 @@ Shader "Custom/CRTShader" {
 			
 			half4 frag(vert_out i): COLOR {
 				float2 uv = curve(i.uv);
-				/* float2 uv = i.uv; */
                 half4 color = tex2D(_MainTex, uv);
 				
 				float2 ps = i.scr_pos.xy * _ScreenParams.xy / i.scr_pos.w;
@@ -73,7 +72,6 @@ Shader "Custom/CRTShader" {
 				
 				// scanline
 				if((int)ps.y % 3 == 0) {
-					/* muls *= float4(_ScansColor, _ScansColor, _ScansColor, 1); */
 					muls *= _ScansColor;
 				}
 				
