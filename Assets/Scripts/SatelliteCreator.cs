@@ -17,8 +17,10 @@ public class SatelliteCreator : MonoBehaviour {
 		Vector3 localPlanetLaunchPosition = Random.onUnitSphere * 0.5f;
 		Vector3 startPosition = planet.transform.TransformPoint(localPlanetLaunchPosition);
 
-		Vector3 relativePos = (startPosition - planet.transform.position).normalized;
-        Quaternion rotation = Quaternion.LookRotation(Vector3.forward, relativePos);
+		Vector3 relativePosition = (startPosition - planet.transform.position).normalized;
+        Quaternion rotation = Quaternion.LookRotation(Vector3.forward, relativePosition);
+
+        Debug.DrawLine(startPosition, planet.transform.position * 100.0f, Color.green, 30.0f);
 
         float planetR = planet.transform.localScale.x / 2;
 
