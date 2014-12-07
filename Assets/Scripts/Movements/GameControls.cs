@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CameraControls : MonoBehaviour {
+public class GameControls : MonoBehaviour {
 
 	public Transform target;
 
@@ -15,7 +15,11 @@ public class CameraControls : MonoBehaviour {
 
 		if (vertical != 0 || horizontal != 0) {
 			rotation = new Vector3(vertical, horizontal, 0);
-			transform.RotateAround(target.position, rotation, RotationSpeed * Time.deltaTime);
+			Camera.main.gameObject.transform.RotateAround(target.position, rotation, RotationSpeed * Time.deltaTime);
+		}
+
+		if(Input.GetButtonDown("Jump")) {
+			SatellitesManager.Instance.SelectNextSatellite();
 		}
 	}
 	
