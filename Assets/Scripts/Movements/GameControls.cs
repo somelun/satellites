@@ -21,6 +21,25 @@ public class GameControls : MonoBehaviour {
 		if(Input.GetButtonDown("Jump")) {
 			SatellitesManager.Instance.SelectNextSatellite();
 		}
+
+		Vector3 force = Vector3.zero;
+		if(Input.GetKeyDown("w")) {
+			force = new Vector3(25, 0, 0);
+		} else if(Input.GetKeyDown("s")) {
+			// force = new Vector3(25, 0, 0);;
+		} else if(Input.GetKeyDown("a")) {
+			// force = new Vector3(25, 0, 0);
+		} else if(Input.GetKeyDown("d")) {
+			// force = new Vector3(25, 0, 0);
+		} else {
+			// force = Vector3.zero;
+		}
+
+		 if (force != Vector3.zero) {
+			SatellitesManager.Instance.SelectedSatellite().GetComponent<MoveObjectLaterally>().RotateObject(force);
+		 }
+		
+
 	}
 	
 }
