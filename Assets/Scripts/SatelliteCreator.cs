@@ -21,8 +21,6 @@ public class SatelliteCreator : MonoBehaviour {
 		Vector3 orthoLeft = Vector3.Cross(Vector3.forward, up);
 		Vector3 orthoForward = Vector3.Cross(orthoLeft, up);
         Quaternion rotation = Quaternion.LookRotation(orthoForward, up);
-		print(Vector3.up);
-        // Debug.DrawLine(startPosition, planet.transform.position * 100.0f, Color.green, 30.0f);
 
         float planetR = planet.transform.localScale.x / 2;
 

@@ -5,6 +5,7 @@ public class MoveObjectAround : MonoBehaviour {
 
 	public float speed;
 	public Transform target;
+	public bool needDrawTrajectory;
 
 	public Color c1 = Color.yellow;
 
@@ -13,9 +14,6 @@ public class MoveObjectAround : MonoBehaviour {
 
     private void Start() {
 		lineRenderer = gameObject.AddComponent<LineRenderer>();
-
-		float theta_scale = 0.1f;
-		int size = (int)((2.0f * Mathf.PI) / theta_scale);
 
 		lineRenderer.material = new Material(Shader.Find("Particles/Additive"));
 		lineRenderer.SetColors(c1, c1);
@@ -27,7 +25,8 @@ public class MoveObjectAround : MonoBehaviour {
 	private void Update() {
 		transform.RotateAround(target.position, transform.right, speed * Time.deltaTime);
 
-		Vector3 up = transform.up;
+		if (!needDrawTrajectory) return;
+
 		float distanceToCenter = Vector3.Distance(transform.position, target.position);
 		
 		float step = 360.0f / numLineSegments;
