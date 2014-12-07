@@ -40,9 +40,18 @@ Shader "Custom/CRTShader" {
 				o.scr_pos = ComputeScreenPos(o.pos);
                 return o;
             }
-
-            half4 frag(vert_out i): COLOR {
-                half4 color = tex2D(_MainTex, i.uv);
+			
+			float2 curve(float2 pos){
+				float2 warp = float2(1.0/12.0,1.0/10.0);
+				pos = pos * 2.0 - 1.0;
+				pos *= float2(1.0 + (pos.y * pos.y) * warp.x, 1.0 + (pos.x * pos.x) * warp.y);
+				return clamp(pos * 0.5 + 0.5, float2(0.0, 0.0),float2(1.0, 1.0));
+			}
+			
+			half4 frag(vert_out i): COLOR {
+				float2 uv = curve(i.uv);
+				/* float2 uv = i.uv; */
+                half4 color = tex2D(_MainTex, uv);
 				
 				float2 ps = i.scr_pos.xy * _ScreenParams.xy / i.scr_pos.w;
 				
@@ -64,10 +73,18 @@ Shader "Custom/CRTShader" {
 				
 				// scanline
 				if((int)ps.y % 3 == 0) {
+					/* muls *= float4(_ScansColor, _ScansColor, _ScansColor, 1); */
 					muls *= _ScansColor;
 				}
 				
 				color = color * muls;
+				
+				float vig = (0.0 + 4.0 * 16.0 * uv.x * uv.y * (1.0 - uv.x) * (1.0 - uv.y));
+				color *= float4(pow(vig, 0.3));
+				
+				/* float2 wcoord = uv.xy/_ScreenParams.xy; */
+                /* float vig = clamp(3.0*length(wcoord-0.5),0.0,1.0); */
+                /* return lerp (float4(wcoord,0.0,1.0),float4(0.3,0.3,0.3,1.0),vig); */
 				
 				return color;
             }
