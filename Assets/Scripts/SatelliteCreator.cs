@@ -7,7 +7,7 @@ public class SatelliteCreator : MonoBehaviour {
 	public GameObject satellite;
 	public float creationPeriod = 3.0f;
 
-	private int count = 110;
+	private int count = 18;
 
 	private void Start() {
 		StartCoroutine("CrateCoroutine");
@@ -23,6 +23,7 @@ public class SatelliteCreator : MonoBehaviour {
         float planetR = planet.transform.localScale.x / 2;
 
 		GameObject satelliteObject = GameObject.Instantiate(satellite, startPosition, rotation) as GameObject;
+
 		satelliteObject.GetComponent<MoveObjectUp>().orbitalHeight = planetR * 1.5f;
 		satelliteObject.GetComponent<MoveObjectUp>().planetPosition = planet.transform.position;
 
