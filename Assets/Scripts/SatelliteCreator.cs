@@ -7,7 +7,7 @@ public class SatelliteCreator : MonoBehaviour {
 	public GameObject satellite;
 	public float creationPeriod = 3.0f;
 
-	private int count = 9;
+	private int count = 110;
 
 	private void Start() {
 		StartCoroutine("CrateCoroutine");
