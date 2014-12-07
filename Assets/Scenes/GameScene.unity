@@ -182,7 +182,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 114911065}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d877ec2f2b6bd4cb0a7fc35938d76a8d, type: 3}
   m_Name: 
@@ -356,10 +356,10 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1244644435}
-  - 114: {fileID: 1244644434}
   - 114: {fileID: 1244644436}
+  - 114: {fileID: 1244644434}
   m_Layer: 0
-  m_Name: Creator
+  m_Name: Managers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -373,12 +373,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1244644433}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c080b39e72a0a4032a1c9c14f9a432c3, type: 3}
+  m_Script: {fileID: 11500000, guid: e56965e0de5a44ba2a2c826ea3f36155, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   planet: {fileID: 100000, guid: 643d0da2feab24171bb7d8c58091f304, type: 2}
   satellite: {fileID: 100000, guid: c248e693ff95c4fcab356dabbdf8e403, type: 2}
-  creationPeriod: 1
+  creationPeriod: 5
 --- !u!4 &1244644435
 Transform:
   m_ObjectHideFlags: 0

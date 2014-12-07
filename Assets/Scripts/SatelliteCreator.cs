@@ -20,7 +20,7 @@ public class SatelliteCreator : MonoBehaviour {
 		Vector3 relativePosition = (startPosition - planet.transform.position).normalized;
         Quaternion rotation = Quaternion.LookRotation(Vector3.forward, relativePosition);
 
-        Debug.DrawLine(startPosition, planet.transform.position * 100.0f, Color.green, 30.0f);
+        // Debug.DrawLine(startPosition, planet.transform.position * 100.0f, Color.green, 30.0f);
 
         float planetR = planet.transform.localScale.x / 2;
 
@@ -28,6 +28,8 @@ public class SatelliteCreator : MonoBehaviour {
 
 		satelliteObject.GetComponent<MoveObjectUp>().orbitalHeight = planetR * 1.5f;
 		satelliteObject.GetComponent<MoveObjectUp>().planetPosition = planet.transform.position;
+
+		SatellitesManager.Instance.AddSatellite(satelliteObject);
 
 		count = count - 1;
 	}
