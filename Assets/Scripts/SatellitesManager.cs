@@ -43,4 +43,8 @@ public class SatellitesManager {
     	return satellites[currentSatelliteIndex];
     }
 
+    public int SatellitesCount() {
+        return satellites.Count;
+    }
+
 }

@@ -18,16 +18,18 @@ public class GameControls : MonoBehaviour {
 			Camera.main.gameObject.transform.RotateAround(target.position, rotation, RotationSpeed * Time.deltaTime);
 		}
 
-		if(Input.GetButtonDown("Jump")) {
-			SatellitesManager.Instance.SelectNextSatellite();
-		}
+		if (SatellitesManager.Instance.SatellitesCount() > 0) {
+			if(Input.GetButtonDown("Jump")) {
+				SatellitesManager.Instance.SelectNextSatellite();
+			}
 
-		if(Input.GetKey("a")) {
-			SatellitesManager.Instance.SelectedSatellite().GetComponent<MoveObjectLaterally>().RotateObject(0);	//left
-			SatellitesManager.Instance.SelectedSatellite().GetComponent<MoveObjectAround>().DrawTrajectory();
-		} else if(Input.GetKey("d")) {
-			SatellitesManager.Instance.SelectedSatellite().GetComponent<MoveObjectLaterally>().RotateObject(1); //right
-			SatellitesManager.Instance.SelectedSatellite().GetComponent<MoveObjectAround>().DrawTrajectory();
+			if(Input.GetKey("a")) {
+				SatellitesManager.Instance.SelectedSatellite().GetComponent<MoveObjectLaterally>().RotateObject(0);	//left
+				SatellitesManager.Instance.SelectedSatellite().GetComponent<MoveObjectAround>().DrawTrajectory();
+			} else if(Input.GetKey("d")) {
+				SatellitesManager.Instance.SelectedSatellite().GetComponent<MoveObjectLaterally>().RotateObject(1); //right
+				SatellitesManager.Instance.SelectedSatellite().GetComponent<MoveObjectAround>().DrawTrajectory();
+			}
 		}
 
 	}
