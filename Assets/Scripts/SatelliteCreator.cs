@@ -13,6 +13,10 @@ public class SatelliteCreator : MonoBehaviour {
 		StartCoroutine("CrateCoroutine");
 	}
 
+	private void StartSatellitesGeneration() {
+		StartCoroutine("CrateCoroutine");
+	}
+
 	private void CreateSatellite() {
 		Vector3 localPlanetLaunchPosition = Random.onUnitSphere * 0.5f;
 		Vector3 startPosition = planet.transform.TransformPoint(localPlanetLaunchPosition);

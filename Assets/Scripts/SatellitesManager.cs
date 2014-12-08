@@ -23,6 +23,10 @@ public class SatellitesManager {
     	satellites.Add(satellite);
     }
 
+    public void RemoveSatellite(GameObject satellite) {
+        satellites.Remove(satellite);
+    }
+
     public void SelectNextSatellite() {
     	GameObject currentSatellite = satellites[currentSatelliteIndex];
     	currentSatellite.renderer.sharedMaterial = Constants.normalMaterial;

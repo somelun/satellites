@@ -48,6 +48,7 @@ public class MoveObjectAround : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 		ParticlesCreator.CreateDebrisParticles(gameObject.transform.position);
+		SatellitesManager.Instance.RemoveSatellite(gameObject);
 		Destroy(gameObject);
 	}
 

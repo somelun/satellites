@@ -5,7 +5,7 @@ public class GameControls : MonoBehaviour {
 
 	public Transform target;
 
-	private float RotationSpeed = 45.0f;
+	private float RotationSpeed = 90.0f;
 	
 	private void Update() {
 		Vector3 rotation;
@@ -22,10 +22,10 @@ public class GameControls : MonoBehaviour {
 			SatellitesManager.Instance.SelectNextSatellite();
 		}
 
-		if(Input.GetKeyDown("a")) {
+		if(Input.GetKey("a")) {
 			SatellitesManager.Instance.SelectedSatellite().GetComponent<MoveObjectLaterally>().RotateObject(0);	//left
 			SatellitesManager.Instance.SelectedSatellite().GetComponent<MoveObjectAround>().DrawTrajectory();
-		} else if(Input.GetKeyDown("d")) {
+		} else if(Input.GetKey("d")) {
 			SatellitesManager.Instance.SelectedSatellite().GetComponent<MoveObjectLaterally>().RotateObject(1); //right
 			SatellitesManager.Instance.SelectedSatellite().GetComponent<MoveObjectAround>().DrawTrajectory();
 		}
