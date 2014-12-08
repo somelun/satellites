@@ -532,4 +532,4 @@ MonoBehaviour:
   speed: 5
   target: {fileID: 400000, guid: 643d0da2feab24171bb7d8c58091f304, type: 2}
   needDrawTrajectory: 0
-  c1: {r: 1, g: .921568632, b: .0156862754, a: 1}
+  color: {r: 0, g: 0, b: 0, a: 0}

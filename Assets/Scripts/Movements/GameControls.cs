@@ -22,11 +22,12 @@ public class GameControls : MonoBehaviour {
 			SatellitesManager.Instance.SelectNextSatellite();
 		}
 
-		Vector3 force = Vector3.zero;
 		if(Input.GetKeyDown("a")) {
 			SatellitesManager.Instance.SelectedSatellite().GetComponent<MoveObjectLaterally>().RotateObject(0);	//left
+			SatellitesManager.Instance.SelectedSatellite().GetComponent<MoveObjectAround>().DrawTrajectory();
 		} else if(Input.GetKeyDown("d")) {
 			SatellitesManager.Instance.SelectedSatellite().GetComponent<MoveObjectLaterally>().RotateObject(1); //right
+			SatellitesManager.Instance.SelectedSatellite().GetComponent<MoveObjectAround>().DrawTrajectory();
 		}
 
 	}

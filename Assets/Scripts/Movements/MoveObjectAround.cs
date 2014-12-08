@@ -7,24 +7,33 @@ public class MoveObjectAround : MonoBehaviour {
 	public Transform target;
 	public bool needDrawTrajectory;
 
-	public Color c1 = Color.yellow;
+	public Color color;
 
     private LineRenderer lineRenderer;
     private int numLineSegments = 18;
 
     private void Start() {
+    	color = new Color(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f));
+
 		lineRenderer = gameObject.AddComponent<LineRenderer>();
 
 		lineRenderer.material = new Material(Shader.Find("Particles/Additive"));
-		lineRenderer.SetColors(c1, c1);
+		lineRenderer.SetColors(color, color);
 		lineRenderer.SetWidth(0.2f, 0.2f);
 		lineRenderer.SetVertexCount(numLineSegments + 1);
 
+		DrawTrajectory();
     }
 	
 	private void Update() {
 		transform.RotateAround(target.position, transform.right, speed * Time.deltaTime);
 
+		if (GetComponent<MoveObjectUp>()) {
+			DrawTrajectory();
+		}
+	}
+
+	public void DrawTrajectory() {
 		if (!needDrawTrajectory) return;
 
 		float distanceToCenter = Vector3.Distance(transform.position, target.position);
