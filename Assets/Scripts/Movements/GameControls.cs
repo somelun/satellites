@@ -30,8 +30,11 @@ public class GameControls : MonoBehaviour {
 				SatellitesManager.Instance.SelectedSatellite().GetComponent<MoveObjectLaterally>().RotateObject(1); //right
 				SatellitesManager.Instance.SelectedSatellite().GetComponent<MoveObjectAround>().DrawTrajectory();
 			}
-		} else if (!GameObject.Find("Canvas")) {
-			Debug.Log("LOSE");
+		}
+
+		if (SatellitesManager.Instance.DestroyedSatellitesCount() >= 6) {
+			Destroy(this);
+			Debug.Log("lose lose lose");
 		}
 
 	}

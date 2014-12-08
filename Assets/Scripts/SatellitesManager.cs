@@ -9,6 +9,7 @@ public class SatellitesManager {
 
 	private List<GameObject> satellites = new List<GameObject>();
 	private int currentSatelliteIndex;
+    private int destroyedSatellitesCount;
 
 	public static SatellitesManager Instance { 
 		get {
@@ -25,6 +26,7 @@ public class SatellitesManager {
 
     public void RemoveSatellite(GameObject satellite) {
         satellites.Remove(satellite);
+        destroyedSatellitesCount = destroyedSatellitesCount + 1;
     }
 
     public void SelectNextSatellite() {
@@ -45,6 +47,10 @@ public class SatellitesManager {
 
     public int SatellitesCount() {
         return satellites.Count;
+    }
+
+    public int DestroyedSatellitesCount() {
+        return destroyedSatellitesCount;
     }
 
 }

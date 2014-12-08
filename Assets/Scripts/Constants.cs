@@ -6,6 +6,7 @@ public class Constants {
 	public static Material normalMaterial = (Material)Resources.Load("Materials/SatelliteMaterial", typeof(Material));
 	public static Material selectedMaterial = (Material)Resources.Load("Materials/SelectedSatelliteMaterial", typeof(Material));
 	public static Material destroyedMaterial = (Material)Resources.Load("Materials/DestroyedSatelliteMaterial", typeof(Material));
+	public static Material lineMaterial = (Material)Resources.Load("Materials/LineMaterial", typeof(Material));
 
 	//particle systems
 	public static ParticleSystem particleSystem = (ParticleSystem)Resources.Load("Particles/Debris", typeof(ParticleSystem));

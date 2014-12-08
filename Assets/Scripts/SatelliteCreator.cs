@@ -5,9 +5,9 @@ public class SatelliteCreator : MonoBehaviour {
 
 	public GameObject planet;
 	public GameObject satellite;
-	public float creationPeriod = 3.0f;
+	public float creationPeriod = 1.5f;
 
-	private int count = 2;
+	private int count = 18;
 	private bool isGenerationStarted;
 
 	private void Update() {
@@ -40,6 +40,7 @@ public class SatelliteCreator : MonoBehaviour {
 		SatellitesManager.Instance.AddSatellite(satelliteObject);
 
 		count = count - 1;
+		creationPeriod = creationPeriod * 1.5f;
 	}
 
 	private IEnumerator CreateCoroutine() {
