@@ -32,9 +32,10 @@ public class GameControls : MonoBehaviour {
 			}
 		}
 
-		if (SatellitesManager.Instance.DestroyedSatellitesCount() >= 6) {
-			Destroy(this);
-			Debug.Log("lose lose lose");
+		if (SatellitesManager.Instance.DestroyedSatellitesCount() >= 1) {
+			SatellitesManager.Instance.PurgeData();
+			this.enabled = false;
+			GameObject.Find("Managers").AddComponent<Restarter>();
 		}
 
 	}

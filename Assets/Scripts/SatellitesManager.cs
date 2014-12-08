@@ -41,6 +41,15 @@ public class SatellitesManager {
     	currentSatellite.renderer.sharedMaterial = Constants.selectedMaterial;
     }
 
+    public void SelectNextSatelliteAfterCrash() {
+        currentSatelliteIndex = currentSatelliteIndex + 1;
+        if (currentSatelliteIndex >= satellites.Count) {
+            currentSatelliteIndex = 0;
+        }
+        GameObject currentSatellite = satellites[currentSatelliteIndex];
+        currentSatellite.renderer.sharedMaterial = Constants.selectedMaterial;    
+    }
+
     public GameObject SelectedSatellite() {
     	return satellites[currentSatelliteIndex];
     }
@@ -51,6 +60,11 @@ public class SatellitesManager {
 
     public int DestroyedSatellitesCount() {
         return destroyedSatellitesCount;
+    }
+
+    public void PurgeData() {
+        satellites.Clear();
+        destroyedSatellitesCount = 0;
     }
 
 }

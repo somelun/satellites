@@ -55,7 +55,7 @@ public class MoveObjectAround : MonoBehaviour {
 
 		// audio.PlayOneShot(audioClip, 0.7f);
 		
-		SatellitesManager.Instance.SelectNextSatellite();
+		SatellitesManager.Instance.SelectNextSatelliteAfterCrash();
 		SatellitesManager.Instance.RemoveSatellite(gameObject);
 		Destroy(gameObject);
 	}
