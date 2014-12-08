@@ -16,6 +16,8 @@ public class MoveObjectAround : MonoBehaviour {
     private void Start() {
     	color = new Color(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f));
 
+    	speed = Random.Range(6, 12);
+
 		lineRenderer = gameObject.AddComponent<LineRenderer>();
 
 		lineRenderer.material = new Material(Shader.Find("Particles/Additive"));

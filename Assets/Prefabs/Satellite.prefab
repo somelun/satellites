@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8143efa5f65a48d0a132f876b2c2068, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 300
   target: {fileID: 400000, guid: 643d0da2feab24171bb7d8c58091f304, type: 2}
   needDrawTrajectory: 1
   audioClip: {fileID: 0}
