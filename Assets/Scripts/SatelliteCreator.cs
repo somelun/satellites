@@ -8,13 +8,17 @@ public class SatelliteCreator : MonoBehaviour {
 	public float creationPeriod = 3.0f;
 
 	private int count = 18;
+	private bool isGenerationStarted;
 
-	private void Start() {
-		StartCoroutine("CrateCoroutine");
-	}
+	private void Update() {
+		if (GameObject.Find("Canvas"))
+			return;
 
-	private void StartSatellitesGeneration() {
-		StartCoroutine("CrateCoroutine");
+		if (isGenerationStarted)
+			return;
+
+		StartCoroutine("CreateCoroutine");
+		isGenerationStarted = true;
 	}
 
 	private void CreateSatellite() {
@@ -38,7 +42,7 @@ public class SatelliteCreator : MonoBehaviour {
 		count = count - 1;
 	}
 
-	IEnumerator CrateCoroutine() {
+	private IEnumerator CreateCoroutine() {
 		while(count > 0) {
 			CreateSatellite();
 			yield return new WaitForSeconds(creationPeriod);

@@ -102,7 +102,7 @@ MonoBehaviour:
   speed: 20
   target: {fileID: 400000, guid: 643d0da2feab24171bb7d8c58091f304, type: 2}
   needDrawTrajectory: 1
-  color: {r: 0, g: 0, b: 0, a: 0}
+  audioClip: {fileID: 0}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -1,14 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(AudioSource))]
 public class MoveObjectAround : MonoBehaviour {
 
 	public float speed;
 	public Transform target;
 	public bool needDrawTrajectory;
-
-	public Color color;
-
+	public AudioClip audioClip;
+	
+	private Color color;
     private LineRenderer lineRenderer;
     private int numLineSegments = 18;
 
@@ -48,8 +49,11 @@ public class MoveObjectAround : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 		ParticlesCreator.CreateDebrisParticles(gameObject.transform.position);
+
+		audio.PlayOneShot(audioClip, 0.7f);
+		
 		SatellitesManager.Instance.RemoveSatellite(gameObject);
-		Destroy(gameObject);
+		// Destroy(gameObject);
 	}
 
 }
