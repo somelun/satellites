@@ -50,6 +50,11 @@ Shader "Custom/CRTShader" {
 			
 			half4 frag(vert_out i): COLOR {
 				float2 uv = curve(i.uv);
+				
+				// pixelesation
+				/* float2 pixel_resolution = float2(128.0, 128.0 * _ScreenParams.y / _ScreenParams.x); */
+				/* uv = floor(uv * pixel_resolution) / pixel_resolution; */
+				
                 half4 color = tex2D(_MainTex, uv);
 				
 				float2 ps = i.scr_pos.xy * _ScreenParams.xy / i.scr_pos.w;
@@ -66,24 +71,30 @@ Shader "Custom/CRTShader" {
 					muls.b = 1; muls.r = _VertsColor2;
 				}
 				
+				// scanlines
+				float2 scanline_resolution = 256.0 * _ScreenParams.y / _ScreenParams.x;
+				float2 scanUV = floor(uv * scanline_resolution) / scanline_resolution;
+				float scans = clamp(1.25 + 0.95 * sin(45.5 * _Time + scanUV.y * 5.1), 0.0, 1.0);
+				float s = pow(scans, 1.2);
+				color *= float4(saturate(0.8 + 0.6 * s));
+				
 				// brightness + contrast
 				color += (_Br / 255);
 				color = color - _Contrast * (color - 1.0) * color *(color - 0.5);
 				
-				// scanline
-				if((int)ps.y % 3 == 0) {
-					muls *= _ScansColor;
-				}
-				
 				color = color * muls;
 				
+				// vignetta
 				float vig = (0.0 + 4.0 * 16.0 * uv.x * uv.y * (1.0 - uv.x) * (1.0 - uv.y));
 				color *= float4(pow(vig, 0.3));
 				
-				/* float2 wcoord = uv.xy/_ScreenParams.xy; */
-                /* float vig = clamp(3.0*length(wcoord-0.5),0.0,1.0); */
-                /* return lerp (float4(wcoord,0.0,1.0),float4(0.3,0.3,0.3,1.0),vig); */
+				// blink
+				float blinkPower = saturate(0.92 + (80.0 * sin(10.0 * _Time) + 80.0));
+				color *= blinkPower;
 				
+				// a little bit greener
+				/* color *= float4(0.95, 1.05, 0.95, 1.0); */
+					
 				return color;
             }
 
