@@ -46,4 +46,9 @@ public class MoveObjectAround : MonoBehaviour {
 		}
 	}
 
+	void OnTriggerEnter(Collider other) {
+		ParticlesCreator.CreateDebrisParticles(gameObject.transform.position);
+		Destroy(gameObject);
+	}
+
 }

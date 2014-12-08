@@ -39,8 +39,4 @@ public class SatellitesManager {
     	return satellites[currentSatelliteIndex];
     }
 
-    public void SelectWithMouse() {
-    	//
-    }
-
 }

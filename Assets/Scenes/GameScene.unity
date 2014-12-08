@@ -393,7 +393,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1244644435}
-  - 114: {fileID: 1244644436}
   - 114: {fileID: 1244644434}
   - 114: {fileID: 1244644437}
   m_Layer: 0
@@ -429,17 +428,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
---- !u!114 &1244644436
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1244644433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a309ce758881048b4ad9fca484499960, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1244644437
 MonoBehaviour:
   m_ObjectHideFlags: 0
