@@ -5,7 +5,7 @@ using System.Collections;
 public class MenuButtons : MonoBehaviour {
 
 	public void PlayButtonClick() {
-		Destroy(GameObject.Find("Canvas"));
+		Destroy(GameObject.Find("Button"));
 	}
 	
 }

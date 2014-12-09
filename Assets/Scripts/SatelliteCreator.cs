@@ -11,7 +11,7 @@ public class SatelliteCreator : MonoBehaviour {
 	private bool isGenerationStarted;
 
 	private void Update() {
-		if (GameObject.Find("Canvas"))
+		if (GameObject.Find("Button"))
 			return;
 
 		if (isGenerationStarted)
