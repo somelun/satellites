@@ -12,6 +12,7 @@ public class Constants {
 	public static ParticleSystem particleSystem = (ParticleSystem)Resources.Load("Particles/Debris", typeof(ParticleSystem));
 
 	// audio clips
-	public static AudioClip hitAudioAcip = (AudioClip)Resources.Load("Sounds/Hit_Hurt", typeof(AudioClip));	
+	public static AudioClip hitAudioAcip = (AudioClip)Resources.Load("Sounds/Hit_Hurt", typeof(AudioClip));
+	public static AudioClip bgTrack = (AudioClip)Resources.Load("Sounds/gamejam", typeof(AudioClip));
 
 }
