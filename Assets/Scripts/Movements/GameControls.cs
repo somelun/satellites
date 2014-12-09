@@ -1,9 +1,13 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class GameControls : MonoBehaviour {
 
 	public Transform target;
+
+	public GameObject restart;
+	public GameObject message;
 
 	private float RotationSpeed = 90.0f;
 	
@@ -35,7 +39,9 @@ public class GameControls : MonoBehaviour {
 		if (SatellitesManager.Instance.DestroyedSatellitesCount() >= 1) {
 			SatellitesManager.Instance.PurgeData();
 			this.enabled = false;
-			GameObject.Find("Managers").AddComponent<Restarter>();
+			restart.SetActive(true);
+			restart.GetComponent<Button>().interactable = true;
+			message.SetActive(true);
 		}
 
 	}

@@ -51,9 +51,10 @@ public class MoveObjectAround : MonoBehaviour {
 	}
 
 	private void OnTriggerEnter(Collider other) {
-		ParticlesCreator.CreateDebrisParticles(gameObject.transform.position);
+		// if (!GameObject.Find("GameControls").activeSelf)
+		// 	return;
 
-		// audio.PlayOneShot(audioClip, 0.7f);
+		ParticlesCreator.CreateDebrisParticles(gameObject.transform.position);
 		
 		SatellitesManager.Instance.SelectNextSatelliteAfterCrash();
 		SatellitesManager.Instance.RemoveSatellite(gameObject);
