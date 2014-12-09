@@ -13,8 +13,10 @@ public class MoveObjectAround : MonoBehaviour {
     private LineRenderer lineRenderer;
     private int numLineSegments = 18;
 
+    private Vector3 trajectoryUp;
+
     private void Start() {
-    	color = new Color(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f));
+    	color = new Color(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), 0.3f);
 
     	speed = Random.Range(6, 12);
 
@@ -25,7 +27,7 @@ public class MoveObjectAround : MonoBehaviour {
 		lineRenderer.SetWidth(0.2f, 0.2f);
 		lineRenderer.SetVertexCount(numLineSegments + 1);
 
-		DrawTrajectory();
+		UpdateTrajectory();
     }
 	
 	private void Update() {
@@ -44,10 +46,14 @@ public class MoveObjectAround : MonoBehaviour {
 		float step = 360.0f / numLineSegments;
 
 		for (int i = 0; i < numLineSegments + 1; ++i) {
-			Vector3 rotatedUp = Quaternion.AngleAxis(step * i, transform.right) * transform.up;
+			Vector3 rotatedUp = Quaternion.AngleAxis(step * i, transform.right) * trajectoryUp;
 			Vector3 nextPos = target.position + rotatedUp * distanceToCenter;
 			lineRenderer.SetPosition(i, nextPos);
 		}
+	}
+
+	public void UpdateTrajectory() {
+		trajectoryUp = transform.up;
 	}
 
 	private void OnTriggerEnter(Collider other) {

@@ -29,9 +29,11 @@ public class GameControls : MonoBehaviour {
 
 			if(Input.GetKey("a")) {
 				SatellitesManager.Instance.SelectedSatellite().GetComponent<MoveObjectLaterally>().RotateObject(0);	//left
+				SatellitesManager.Instance.SelectedSatellite().GetComponent<MoveObjectAround>().UpdateTrajectory();
 				SatellitesManager.Instance.SelectedSatellite().GetComponent<MoveObjectAround>().DrawTrajectory();
 			} else if(Input.GetKey("d")) {
 				SatellitesManager.Instance.SelectedSatellite().GetComponent<MoveObjectLaterally>().RotateObject(1); //right
+				SatellitesManager.Instance.SelectedSatellite().GetComponent<MoveObjectAround>().UpdateTrajectory();
 				SatellitesManager.Instance.SelectedSatellite().GetComponent<MoveObjectAround>().DrawTrajectory();
 			}
 		}

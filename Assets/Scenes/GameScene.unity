@@ -257,7 +257,7 @@ MonoBehaviour:
   verts_force: .25999999
   verts_force_2: .349000007
   contrast: -.899999976
-  brightness: -19
+  brightness: -26
   scanlineColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &217089226
 GameObject:
@@ -369,6 +369,22 @@ Prefab:
     - target: {fileID: 400000, guid: 2d611e50666f9409a90a90cb17b6ed91, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: 2d611e50666f9409a90a90cb17b6ed91, type: 2}
+      propertyPath: far clip plane
+      value: 3000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: 2d611e50666f9409a90a90cb17b6ed91, type: 2}
+      propertyPath: field of view
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 2d611e50666f9409a90a90cb17b6ed91, type: 2}
+      propertyPath: brightness
+      value: -26
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 2d611e50666f9409a90a90cb17b6ed91, type: 2}
+      propertyPath: contrast
+      value: -.899999976
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d611e50666f9409a90a90cb17b6ed91, type: 2}
@@ -1050,7 +1066,7 @@ Canvas:
   m_GameObject: {fileID: 1673431733}
   m_Enabled: 1
   serializedVersion: 2
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0

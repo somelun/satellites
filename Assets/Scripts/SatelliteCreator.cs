@@ -7,7 +7,7 @@ public class SatelliteCreator : MonoBehaviour {
 	public GameObject satellite;
 	public float creationPeriod = 1.5f;
 
-	private int count = 18;
+	private int count = 30;
 	private bool isGenerationStarted;
 
 	private void Update() {
@@ -26,7 +26,8 @@ public class SatelliteCreator : MonoBehaviour {
 		Vector3 startPosition = planet.transform.TransformPoint(localPlanetLaunchPosition);
 
 		Vector3 up = (startPosition - planet.transform.position).normalized;
-		Vector3 orthoLeft = Vector3.Cross(Vector3.forward, up);
+		Vector3 direction = Random.onUnitSphere;
+		Vector3 orthoLeft = Vector3.Cross(direction, up);
 		Vector3 orthoForward = Vector3.Cross(orthoLeft, up);
         Quaternion rotation = Quaternion.LookRotation(orthoForward, up);
 
@@ -40,7 +41,7 @@ public class SatelliteCreator : MonoBehaviour {
 		SatellitesManager.Instance.AddSatellite(satelliteObject);
 
 		count = count - 1;
-		creationPeriod = creationPeriod * 1.5f;
+		creationPeriod = creationPeriod + 2;
 	}
 
 	private IEnumerator CreateCoroutine() {

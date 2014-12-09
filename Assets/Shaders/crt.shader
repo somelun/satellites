@@ -76,7 +76,8 @@ Shader "Custom/CRTShader" {
 				float2 scanUV = floor(uv * scanline_resolution) / scanline_resolution;
 				float scans = clamp(1.25 + 0.95 * sin(45.5 * _Time + scanUV.y * 5.1), 0.0, 1.0);
 				float s = pow(scans, 1.2);
-				color *= float4(saturate(0.8 + 0.6 * s));
+				float satur = saturate(0.8 + 0.6 * s);
+				color *= float4(satur, satur, satur, satur);
 				
 				// brightness + contrast
 				color += (_Br / 255);
@@ -86,14 +87,15 @@ Shader "Custom/CRTShader" {
 				
 				// vignetta
 				float vig = (0.0 + 4.0 * 16.0 * uv.x * uv.y * (1.0 - uv.x) * (1.0 - uv.y));
-				color *= float4(pow(vig, 0.3));
+				float cc = pow(vig, 0.3);
+				color *= float4(cc, cc, cc, cc);
 				
 				// blink
 				float blinkPower = saturate(0.92 + (80.0 * sin(10.0 * _Time) + 80.0));
 				color *= blinkPower;
 				
 				// a little bit greener
-				/* color *= float4(0.95, 1.05, 0.95, 1.0); */
+				color *= float4(0.95, 1.13, 0.95, 1.0);
 					
 				return color;
             }
