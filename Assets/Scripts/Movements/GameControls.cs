@@ -18,8 +18,11 @@ public class GameControls : MonoBehaviour {
 		int horizontal = (int)Input.GetAxis("Horizontal");
 
 		if (vertical != 0 || horizontal != 0) {
+			// vertiacalVector		= new Vector3(vectical, 0.0f, 0.0f);
+			// horizontalVector	= new Vector3(0.0f, horizontal, 0.0f);
 			rotation = new Vector3(vertical, horizontal, 0);
-			Camera.main.gameObject.transform.RotateAround(target.position, rotation, RotationSpeed * Time.deltaTime);
+			Transform cameraTransform = Camera.main.transform;
+			cameraTransform.RotateAround(target.position, cameraTransform.TransformDirection(rotation), RotationSpeed * Time.deltaTime);
 		}
 
 		if (SatellitesManager.Instance.SatellitesCount() > 0) {

@@ -65,6 +65,8 @@ public class SatellitesManager {
     public void PurgeData() {
         satellites.Clear();
         destroyedSatellitesCount = 0;
+        currentSatelliteIndex = 0;
+        destroyedSatellitesCount = 0;
     }
 
 }
