@@ -7,10 +7,10 @@ public class MoveObjectUp : MonoBehaviour {
 	private Vector3 _planetPosition;
 	
 	private void Update() {
-		rigidbody.velocity = transform.up;
+		GetComponent<Rigidbody>().velocity = transform.up;
 		float distance = Vector3.Distance(transform.position, _planetPosition);
 		if (distance > _orbitalHeight) {
-			rigidbody.velocity = Vector3.zero;
+			GetComponent<Rigidbody>().velocity = Vector3.zero;
 			Destroy(this);
 		}
 	}

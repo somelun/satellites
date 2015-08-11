@@ -31,14 +31,14 @@ public class SatellitesManager {
 
     public void SelectNextSatellite() {
     	GameObject currentSatellite = satellites[currentSatelliteIndex];
-    	currentSatellite.renderer.sharedMaterial = Constants.normalMaterial;
+    	currentSatellite.GetComponent<Renderer>().sharedMaterial = Constants.normalMaterial;
 
     	currentSatelliteIndex = currentSatelliteIndex + 1;
     	if (currentSatelliteIndex >= satellites.Count) {
     		currentSatelliteIndex = 0;
     	}
     	currentSatellite = satellites[currentSatelliteIndex];
-    	currentSatellite.renderer.sharedMaterial = Constants.selectedMaterial;
+    	currentSatellite.GetComponent<Renderer>().sharedMaterial = Constants.selectedMaterial;
     }
 
     public void SelectNextSatelliteAfterCrash() {
@@ -47,7 +47,7 @@ public class SatellitesManager {
             currentSatelliteIndex = 0;
         }
         GameObject currentSatellite = satellites[currentSatelliteIndex];
-        currentSatellite.renderer.sharedMaterial = Constants.selectedMaterial;    
+        currentSatellite.GetComponent<Renderer>().sharedMaterial = Constants.selectedMaterial;    
     }
 
     public GameObject SelectedSatellite() {
