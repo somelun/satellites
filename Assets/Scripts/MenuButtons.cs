@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
-using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class MenuButtons : MonoBehaviour {
 
@@ -9,7 +8,7 @@ public class MenuButtons : MonoBehaviour {
 	}
 
 	public void RestartButtonClick() {
-		Application.LoadLevel("GameScene");
+		SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
 	}
 	
 }

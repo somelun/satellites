@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Restarter : MonoBehaviour {
 
@@ -9,7 +9,7 @@ public class Restarter : MonoBehaviour {
 	private void OnGUI() {
 
     	if(GUI.Button(new Rect(Screen.width / 2 - w / 2, Screen.height / 2 - h / 2, w, h), "Important satellites were destroyed. \n\nPress to restart.")){
-        	Application.LoadLevel("GameScene");
+        	SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
     	}
 	}
 
