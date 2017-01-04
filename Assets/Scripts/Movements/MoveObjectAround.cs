@@ -20,12 +20,16 @@ public class MoveObjectAround : MonoBehaviour {
 
     	speed = Random.Range(6, 12);
 
+    	return;
+
 		lineRenderer = gameObject.AddComponent<LineRenderer>();
 
 		lineRenderer.material = Constants.lineMaterial;
-		lineRenderer.SetColors(color, color);
-		lineRenderer.SetWidth(0.2f, 0.2f);
-		lineRenderer.SetVertexCount(numLineSegments + 1);
+		lineRenderer.startColor = color;
+		lineRenderer.endColor = color;
+		lineRenderer.startWidth = 0.2f;
+		lineRenderer.endWidth = 0.2f;
+		lineRenderer.numPositions = numLineSegments + 1;
 
 		UpdateTrajectory();
     }
@@ -39,7 +43,11 @@ public class MoveObjectAround : MonoBehaviour {
 	}
 
 	public void DrawTrajectory() {
-		if (!needDrawTrajectory) return;
+		return;
+
+		if (!needDrawTrajectory) {
+			return;
+		}
 
 		float distanceToCenter = Vector3.Distance(transform.position, target.position);
 		
